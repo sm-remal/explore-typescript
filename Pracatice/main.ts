@@ -20,3 +20,31 @@ for(const main of array){
 }
 console.log(sum)
 
+// problem - 4
+type User = {
+    name: string,
+    age: number,
+    isAdmin: boolean,
+}
+const user: User = {
+    name: "Shah Mozzem Remal",
+    age: 23,
+    isAdmin: true,
+}
+
+console.log(user.name)
+
+// ------ Interface ------ //
+interface Person  {
+    name: string,
+    age: number,
+    isAdmin: boolean,
+}
+
+const person: Person = {
+    name: "Shah Mozzem Remal",
+    age: 23,
+    isAdmin: true
+}
+console.log(person.isAdmin)
+
