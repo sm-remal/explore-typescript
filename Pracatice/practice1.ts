@@ -77,34 +77,17 @@ type Student = {
     marks: number,
 }
 
-const student: Student = [
-    {
-        id: 101,
-        name: "Shakib",
-        marks: 95,
-    },
-    {
-        id: 102,
-        name: "Tamim",
-        marks: 92,
-    },
-    {
-        id: 103,
-        name: "Miraz",
-        marks: 88,
-    },
-    {
-        id: 104,
-        name: "Mustafiz",
-        marks: 91,
-    },
-    {
-        id: 105,
-        name: "Mash",
-        marks: 97,
-    },
+const students: Student[] = [
+    { id: 101, name: "Shakib", marks: 95 },
+    { id: 102, name: "Tamim", marks: 92 },
+    { id: 103, name: "Miraz", marks: 88 },
+    { id: 104, name: "Mustafiz", marks: 91 },
+    { id: 105, name: "Mash", marks: 97 },
 ]
 
-const maxNumber = (student: any) => {
-    const max = student.map(student.Math())
+const maxNumber = (students: Student[]): number => {
+    const max = Math.max(...students.map(s => s.marks))
+    return max
 }
+
+console.log(maxNumber(students)) 
