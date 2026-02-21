@@ -90,4 +90,25 @@ const maxNumber = (students: Student[]): number => {
     return max
 }
 
-console.log(maxNumber(students)) 
+// console.log(maxNumber(students)) 
+
+
+// Problem - 6
+type Status = "success" | "error" | "loading";
+
+// Function
+function handleStatus(status: Status): string {
+  if (status === "success") {
+    return "Operation completed successfully!";
+  } else if (status === "error") {
+    return "Something went wrong!";
+  } else if (status === "loading") {
+    return "Please wait, loading...";
+  } else {
+    return "Unknown status";
+  }
+}
+
+console.log(handleStatus("success"));
+console.log(handleStatus("error"));
+console.log(handleStatus("loading"));
