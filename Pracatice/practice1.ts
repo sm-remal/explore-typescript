@@ -5,7 +5,7 @@ const addNumbers = (a: number, b: number): number => {
 
 const result = addNumbers(5, 6);
 
-// console.log(typeof result);
+console.log(typeof result);
 
 
 // Problem - 2
@@ -19,7 +19,7 @@ const printId = (id: number | string): number | string => {
 
 const printIdResult = printId(12)
 
-// console.log(printIdResult)
+console.log(printIdResult)
 
 
 // Problem - 3
@@ -39,7 +39,7 @@ const user: User = {
 
 user.isAdmin = true;
 
-// console.log(typeof user.id, user.isAdmin);
+console.log(typeof user.id, user.isAdmin);
 
 
 // Problem - 4
@@ -67,7 +67,7 @@ const printProduct = (product: Product) => {
 
 const output = printProduct(product);
 
-// console.log(output)
+console.log(output)
 
 
 // Problem - 5
@@ -90,7 +90,7 @@ const maxNumber = (students: Student[]): number => {
     return max
 }
 
-// console.log(maxNumber(students)) 
+console.log(maxNumber(students)) 
 
 
 // Problem - 6
@@ -112,3 +112,30 @@ function handleStatus(status: Status): string {
 console.log(handleStatus("success"));
 console.log(handleStatus("error"));
 console.log(handleStatus("loading"));
+
+
+
+// Problem - 6 : Auth User Type
+type AuthUser = {
+    _id: number,
+    name: string,
+    email: string,
+    role: "admin" | "user"
+}
+
+const authUser: AuthUser = {
+    _id: 123456789,
+    name: "Shah Mozzem Remal",
+    email: "shahmozzem@gmail.com",
+    role: "admin",
+}
+
+function isAdmin(user: AuthUser): boolean  {
+    if(user.role === "admin"){
+        return true
+    }else{
+        return false
+    }
+}
+
+console.log(isAdmin(authUser))
