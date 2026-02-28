@@ -96,17 +96,19 @@ console.log(maxNumber(students))
 // Problem - 6
 type Status = "success" | "error" | "loading";
 
-// Function
 function handleStatus(status: Status): string {
-  if (status === "success") {
-    return "Operation completed successfully!";
-  } else if (status === "error") {
-    return "Something went wrong!";
-  } else if (status === "loading") {
-    return "Please wait, loading...";
-  } else {
-    return "Unknown status";
-  }
+    switch (status) {
+        case "success":
+            return "Operation completed successfully!";
+        case "error":
+            return "Something went wrong!";
+        case "loading":
+            return "Please wait, loading...";
+        default: {
+            const exhaustiveCheck: never = status;
+            return exhaustiveCheck;
+        }
+    }
 }
 
 console.log(handleStatus("success"));
@@ -114,8 +116,7 @@ console.log(handleStatus("error"));
 console.log(handleStatus("loading"));
 
 
-
-// Problem - 6 : Auth User Type
+// Problem - 7 : Auth User Type
 type AuthUser = {
     _id: number,
     name: string,
@@ -130,10 +131,10 @@ const authUser: AuthUser = {
     role: "admin",
 }
 
-function isAdmin(user: AuthUser): boolean  {
-    if(user.role === "admin"){
+function isAdmin(user: AuthUser): boolean {
+    if (user.role === "admin") {
         return true
-    }else{
+    } else {
         return false
     }
 }

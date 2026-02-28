@@ -72,3 +72,24 @@ function getBookInfo(book: Book): string {
 }
 
 console.log(getBookInfo(book1))
+
+
+//problem 6
+type Users = {
+    id: number,
+    name: string,
+    role: "admin" | "user",
+}
+
+const users: Users [] = [
+    {
+        id: 101,
+        name: "Shuvo",
+        role: "admin",
+    },
+    {
+        id: 102,
+        name: "Siam",
+        role: "user",
+    }
+]
