@@ -58,3 +58,22 @@ function addNumbers(num1: number, num2: number): number {
 
 console.log(addNumbers(5, 6))
 
+
+// problem 7
+interface User5 {
+    id: number,
+    name: string,
+    email: string,
+    isAdmin: boolean,
+};
+
+const user5 = {
+    id: 102,
+    name: "Siam",
+    email: "siam@gmail.com",
+    isAdmin: true,
+}
+
+user5.email = "remal@gmail.com";
+
+console.log(user5.email);
