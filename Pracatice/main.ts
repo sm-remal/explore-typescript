@@ -35,6 +35,8 @@ const user: User = {
 console.log(user.name)
 
 // ------ Interface ------ //
+
+// problem 5
 interface Person  {
     name: string,
     age: number,

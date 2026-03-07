@@ -95,7 +95,7 @@ const users: Users[] = [
 ]
 
 
-// problem 6 
+// problem 7
 type User3 = {
     id: number
     name: string
@@ -136,7 +136,7 @@ const filterByProperty = (users3: User3[], name: string): User3[] => {
 
 
 
-// problem 6
+// problem 8
 type Products = {
     id: number,
     title: string,
@@ -196,7 +196,7 @@ function genericFilter(items: Products[], title: string): string[] {
 // console.log(genericFilter(products, "jeans"))
 
 
-// problem 7
+// problem 9
 type Watch = {
     id: number,
     brand: string
