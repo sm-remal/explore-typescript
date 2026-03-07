@@ -50,4 +50,11 @@ const person: Person = {
 }
 console.log(person.isAdmin)
 
-// 
+// problem 6
+function addNumbers(num1: number, num2: number): number {
+    const result = num1 + num2;
+    return result;
+}
+
+console.log(addNumbers(5, 6))
+
