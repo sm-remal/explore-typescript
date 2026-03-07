@@ -77,3 +77,11 @@ const user5 = {
 user5.email = "remal@gmail.com";
 
 console.log(user5.email);
+
+
+// problem 8  (Generic Type)
+function getFirstElement<T>(array: T[]): T {
+    return array[0];
+}
+
+console.log(getFirstElement([10, 20, 30]))
