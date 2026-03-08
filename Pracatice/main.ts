@@ -121,3 +121,11 @@ const userProperties: UserProperties = {
 }
 
 console.log(`${userProperties.name} (${userProperties.email})`)
+
+
+// problem 12
+function findLargest(array: number[]): number{
+    const result = Math.max(...array)
+    return result
+}
+console.log(findLargest([5, 8, 2, 11, 3]))
