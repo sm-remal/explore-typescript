@@ -105,3 +105,19 @@ const getFirstElementFruits = (fruits: string[]): string => {
 }
 
 console.log(getFirstElementFruits(["apple", "banana", "mango"]))
+
+
+// problem 11
+interface UserProperties {
+    id: number,
+    name: string,
+    email: string,
+}
+
+const userProperties: UserProperties = {
+    id: 101,
+    name: "Shah Mozzem Remal",
+    email: "shahmozzemremal@gmail.com",
+}
+
+console.log(`${userProperties.name} (${userProperties.email})`)
