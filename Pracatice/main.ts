@@ -85,3 +85,23 @@ function getFirstElement<T>(array: T[]): T {
 }
 
 console.log(getFirstElement([10, 20, 30]))
+
+// problem 9
+const sumArrayNumbers = (array: number[]): number => {
+    let sumOfArray = 0;
+    for(const arr of array){
+        sumOfArray = sumOfArray + arr;
+    }
+    return sumOfArray
+}
+
+console.log(sumArrayNumbers([1, 2, 3, 4]))
+
+
+// problem 10
+
+const getFirstElementFruits = (fruits: string[]): string => {
+    return fruits[0];
+}
+
+console.log(getFirstElementFruits(["apple", "banana", "mango"]))
