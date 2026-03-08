@@ -15,7 +15,7 @@ console.log(result)
 // problem - 3
 const array: number[] = [1, 2, 3, 4, 5]
 let sum: number = 0;
-for(const main of array){
+for (const main of array) {
     sum = sum + main;
 }
 console.log(sum)
@@ -37,7 +37,7 @@ console.log(user.name)
 // ------ Interface ------ //
 
 // problem 5
-interface Person  {
+interface Person {
     name: string,
     age: number,
     isAdmin: boolean,
@@ -89,7 +89,7 @@ console.log(getFirstElement([10, 20, 30]))
 // problem 9
 const sumArrayNumbers = (array: number[]): number => {
     let sumOfArray = 0;
-    for(const arr of array){
+    for (const arr of array) {
         sumOfArray = sumOfArray + arr;
     }
     return sumOfArray
@@ -124,8 +124,26 @@ console.log(`${userProperties.name} (${userProperties.email})`)
 
 
 // problem 12
-function findLargest(array: number[]): number{
+function findLargest(array: number[]): number {
     const result = Math.max(...array)
     return result
 }
 console.log(findLargest([5, 8, 2, 11, 3]))
+
+// problem 13 
+const makePair = <S, T>(key: S, value: T): { key: S, value: T } => {
+    return {
+        key: key,
+        value: value
+    }
+}
+
+console.log(makePair("age", 23))
+
+
+// problem 14
+const reverseArray = <N>(value: N[]): N[] => {
+    return value.reverse();
+}
+
+console.log(reverseArray([1, 2, 3, 4]))
