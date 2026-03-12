@@ -186,16 +186,15 @@ console.log(user7.name)
 
 // Problem 18 
 interface Product {
-    id: number,
-    name: string,
-    price: number,
-    description: any,
+    id: number;
+    name: string;
+    price: number;
+    description?: string;
 }
 const product: Product = {
     id: 1245,
     name: "Laptop",
     price: 78000,
-    description: null
 }
 
 console.log(product)
@@ -205,4 +204,31 @@ console.log(product)
 function getFirstElementInArray <T> (array: T[]): T {
     return array[0];
 }
-console.log(getFirstElementInArray([2,8,6,4,5,3,1]))
+console.log(getFirstElementInArray(["a","b","c"]))
+
+
+// Problem 20
+
+const orders = [
+  { id: 1, name: "Mouse", price: 500, quantity: 2 },
+  { id: 2, name: "Keyboard", price: 1500, quantity: 1 },
+  { id: 3, name: "Monitor", price: 12000, quantity: 1 }
+]
+
+interface OrderItem {
+    id: number;
+    name: string;
+    price: number;
+    quantity: number;
+}
+
+function calculateTotal(orderItems: OrderItem[]): number {
+    
+    let sum = 0;
+    for(let item of orderItems) {
+        sum = sum + (item.price * item.quantity);
+    }
+    return sum;
+}
+
+console.log(calculateTotal(orders))
