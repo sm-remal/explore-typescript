@@ -182,3 +182,27 @@ const user7: User7 = {
 }
 
 console.log(user7.name)
+
+
+// Problem 18 
+interface Product {
+    id: number,
+    name: string,
+    price: number,
+    description: any,
+}
+const product: Product = {
+    id: 1245,
+    name: "Laptop",
+    price: 78000,
+    description: null
+}
+
+console.log(product)
+
+
+// Problem 19
+function getFirstElementInArray <T> (array: T[]): T {
+    return array[0];
+}
+console.log(getFirstElementInArray([2,8,6,4,5,3,1]))
