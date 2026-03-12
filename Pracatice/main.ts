@@ -158,3 +158,9 @@ console.log(addNumber(5, 6));
 
 
 // Problem 16
+function findMaxValue (array: number[]): number {
+    const result = Math.max(...array);
+    return result;
+}
+
+console.log(findMaxValue([1,2,3,4,5,6,7,8,9,10]))
