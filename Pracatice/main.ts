@@ -164,3 +164,21 @@ function findMaxValue (array: number[]): number {
 }
 
 console.log(findMaxValue([1,2,3,4,5,6,7,8,9,10]))
+
+
+// Problem 17
+interface User7 {
+    id: number,
+    name: string,
+    email: string,
+    isAdmin: boolean,
+}
+
+const user7: User7 = {
+    id: 106,
+    name: "Remal",
+    email: "remal@gmail.com",
+    isAdmin: true,
+}
+
+console.log(user7.name)
