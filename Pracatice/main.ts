@@ -147,3 +147,14 @@ const reverseArray = <N>(value: N[]): N[] => {
 }
 
 console.log(reverseArray([1, 2, 3, 4]))
+
+
+// Problem 15
+const addNumber = (num1: number, num2: number): number => {
+    return num1 + num2;
+}
+
+console.log(addNumber(5, 6));
+
+
+// Problem 16
