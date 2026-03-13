@@ -232,3 +232,42 @@ function calculateTotal(orderItems: OrderItem[]): number {
 }
 
 console.log(calculateTotal(orders))
+
+
+// Problem 21
+const getLength = ( value: number | string ): number => {
+    if(value === "string"){
+        return value.length;
+    }else{
+        return value.toString().length;
+    }
+}
+console.log(typeof(getLength(5214)))
+
+
+// Problem 22
+const students = [
+  { id: 1, name: "Rahim", marks: 55 },
+  { id: 2, name: "Karim", marks: 32 },
+  { id: 3, name: "Salma", marks: 78 },
+  { id: 4, name: "Jamal", marks: 40 },
+  { id: 5, name: "Nila", marks: 25 }
+]
+
+interface Student {
+    id: number;
+    name: string;
+    marks: number;
+}
+
+function getPassedStudents ( students: Student[] ): Student[] {
+    let newArray: Student[] = [];
+    for(let student of students){
+        if(student.marks >= 40) {
+            newArray.push(student);
+        }
+    }
+    return newArray;
+}
+
+console.log(getPassedStudents(students))
