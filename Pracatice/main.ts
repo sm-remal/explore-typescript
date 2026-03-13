@@ -158,12 +158,12 @@ console.log(addNumber(5, 6));
 
 
 // Problem 16
-function findMaxValue (array: number[]): number {
+function findMaxValue(array: number[]): number {
     const result = Math.max(...array);
     return result;
 }
 
-console.log(findMaxValue([1,2,3,4,5,6,7,8,9,10]))
+console.log(findMaxValue([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 
 
 // Problem 17
@@ -201,18 +201,18 @@ console.log(product)
 
 
 // Problem 19
-function getFirstElementInArray <T> (array: T[]): T {
+function getFirstElementInArray<T>(array: T[]): T {
     return array[0];
 }
-console.log(getFirstElementInArray(["a","b","c"]))
+console.log(getFirstElementInArray(["a", "b", "c"]))
 
 
 // Problem 20
 
 const orders = [
-  { id: 1, name: "Mouse", price: 500, quantity: 2 },
-  { id: 2, name: "Keyboard", price: 1500, quantity: 1 },
-  { id: 3, name: "Monitor", price: 12000, quantity: 1 }
+    { id: 1, name: "Mouse", price: 500, quantity: 2 },
+    { id: 2, name: "Keyboard", price: 1500, quantity: 1 },
+    { id: 3, name: "Monitor", price: 12000, quantity: 1 }
 ]
 
 interface OrderItem {
@@ -223,9 +223,9 @@ interface OrderItem {
 }
 
 function calculateTotal(orderItems: OrderItem[]): number {
-    
+
     let sum = 0;
-    for(let item of orderItems) {
+    for (let item of orderItems) {
         sum = sum + (item.price * item.quantity);
     }
     return sum;
@@ -235,23 +235,23 @@ console.log(calculateTotal(orders))
 
 
 // Problem 21
-const getLength = ( value: number | string ): number => {
-    if(value === "string"){
+const getLength = (value: number | string): number => {
+    if (value === "string") {
         return value.length;
-    }else{
+    } else {
         return value.toString().length;
     }
 }
-console.log(typeof(getLength(5214)))
+console.log(typeof (getLength(5214)))
 
 
 // Problem 22
 const students = [
-  { id: 1, name: "Rahim", marks: 55 },
-  { id: 2, name: "Karim", marks: 32 },
-  { id: 3, name: "Salma", marks: 78 },
-  { id: 4, name: "Jamal", marks: 40 },
-  { id: 5, name: "Nila", marks: 25 }
+    { id: 1, name: "Rahim", marks: 55 },
+    { id: 2, name: "Karim", marks: 32 },
+    { id: 3, name: "Salma", marks: 78 },
+    { id: 4, name: "Jamal", marks: 40 },
+    { id: 5, name: "Nila", marks: 25 }
 ]
 
 interface Student {
@@ -260,10 +260,10 @@ interface Student {
     marks: number;
 }
 
-function getPassedStudents ( students: Student[] ): Student[] {
+function getPassedStudents(students: Student[]): Student[] {
     let newArray: Student[] = [];
-    for(let student of students){
-        if(student.marks >= 40) {
+    for (let student of students) {
+        if (student.marks >= 40) {
             newArray.push(student);
         }
     }
@@ -271,3 +271,53 @@ function getPassedStudents ( students: Student[] ): Student[] {
 }
 
 console.log(getPassedStudents(students))
+
+
+// Problem 23
+const profile1 = {
+  name: "Rahim",
+  address: {
+    city: "Dhaka",
+    country: "Bangladesh"
+  }
+}
+
+const profile2 = {
+  name: "Karim"
+}
+
+const profile3 = {
+  name: "Salma",
+  address: {
+    country: "Bangladesh"
+  }
+}
+
+interface Profile {
+    name: string
+    address?: {
+        city?: string
+        country?: string
+    }
+}
+
+function getCity(profile: Profile): string {
+    if(profile.address?.city){
+        return profile.address?.city;
+    }else{
+        return "City not found"
+    }
+}
+
+console.log(getCity(profile3))
+
+
+// problem 24
+function removeFirstElement <T> (array: T[]): T[] {
+    return array.slice(1)
+}
+
+console.log(removeFirstElement([1,2,3,4]))
+
+
+// 
