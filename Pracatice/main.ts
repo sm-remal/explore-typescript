@@ -275,22 +275,22 @@ console.log(getPassedStudents(students))
 
 // Problem 23
 const profile1 = {
-  name: "Rahim",
-  address: {
-    city: "Dhaka",
-    country: "Bangladesh"
-  }
+    name: "Rahim",
+    address: {
+        city: "Dhaka",
+        country: "Bangladesh"
+    }
 }
 
 const profile2 = {
-  name: "Karim"
+    name: "Karim"
 }
 
 const profile3 = {
-  name: "Salma",
-  address: {
-    country: "Bangladesh"
-  }
+    name: "Salma",
+    address: {
+        country: "Bangladesh"
+    }
 }
 
 interface Profile {
@@ -302,9 +302,9 @@ interface Profile {
 }
 
 function getCity(profile: Profile): string {
-    if(profile.address?.city){
+    if (profile.address?.city) {
         return profile.address?.city;
-    }else{
+    } else {
         return "City not found"
     }
 }
@@ -313,18 +313,52 @@ console.log(getCity(profile3))
 
 
 // problem 24
-function removeFirstElement <T> (array: T[]): T[] {
+function removeFirstElement<T>(array: T[]): T[] {
     return array.slice(1)
 }
 
-console.log(removeFirstElement([1,2,3,4]))
+console.log(removeFirstElement([1, 2, 3, 4]))
 
 
 // problem 25
-const getLastElement = <T> (array: T[]) : T | undefined => {
-    const lastElement = array.pop();
-    return lastElement;
+const getLastElement = <T>(array: T[]): T | undefined => {
+    return array [array.length - 1];
+    
 }
 
 console.log(getLastElement([1, 2, 3]))
 console.log(getLastElement(["a", "b", "c"]))
+
+
+// problem 26
+interface User8 {
+    id: number;
+    name: string;
+    isActive: boolean;
+}
+
+// problem 27
+interface User8 {
+    id: number;
+    name: string;
+    isActive: boolean;
+}
+
+const users8: User8[] = [
+    { id: 1, name: "Rahim", isActive: true },
+    { id: 2, name: "Karim", isActive: false },
+];
+
+function getActiveUsers(users: User8[]): User8[] {
+    const activeUsers: User8[] = [];
+
+    for (let user of users) {
+        if (user.isActive) {
+            activeUsers.push(user);
+        }
+    }
+
+    return activeUsers;
+}
+
+console.log(getActiveUsers(users8));
