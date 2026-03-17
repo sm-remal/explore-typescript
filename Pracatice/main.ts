@@ -320,4 +320,11 @@ function removeFirstElement <T> (array: T[]): T[] {
 console.log(removeFirstElement([1,2,3,4]))
 
 
-// 
+// problem 25
+const getLastElement = <T> (array: T[]) : T | undefined => {
+    const lastElement = array.pop();
+    return lastElement;
+}
+
+console.log(getLastElement([1, 2, 3]))
+console.log(getLastElement(["a", "b", "c"]))
