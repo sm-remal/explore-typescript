@@ -362,3 +362,22 @@ function getActiveUsers(users: User8[]): User8[] {
 }
 
 console.log(getActiveUsers(users8));
+
+
+// problem 28
+function getLength1<T extends { length: number }>(item: T): number {
+  return item.length;
+}
+
+// String
+const strLength = getLength1("Hello");
+console.log("String Length:", strLength); 
+
+// Array
+const arrLength = getLength1([1, 2, 3, 4]);
+console.log("Array Length:", arrLength); 
+
+// Custom Object
+const objLength = getLength1({ length: 10, name: "Test" });
+console.log("Object Length:", objLength); 
+
