@@ -381,3 +381,20 @@ console.log("Array Length:", arrLength);
 const objLength = getLength1({ length: 10, name: "Test" });
 console.log("Object Length:", objLength); 
 
+
+// problem 29
+function identity<T>(value: T): T {
+  return value;
+}
+
+// Usage examples
+const result1 = identity("Hello");
+console.log(result1);
+
+const result2 = identity(10);
+console.log(result2);
+
+const result3 = identity([1, 2, 3]);
+console.log(result3); 
+
+
