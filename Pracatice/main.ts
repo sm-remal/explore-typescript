@@ -398,3 +398,17 @@ const result3 = identity([1, 2, 3]);
 console.log(result3); 
 
 
+// problem 30
+function getFirstElement1<T>(arr: T[]): T | undefined {
+  return arr.length > 0 ? arr[0] : undefined;
+}
+
+// Usage examples
+const result11 = getFirstElement1([1, 2, 3]);
+console.log(result11); // 1
+
+const result22 = getFirstElement1(["a", "b", "c"]);
+console.log(result22); // "a"
+
+const result33 = getFirstElement1([]);
+console.log(result33); // undefined
