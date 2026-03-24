@@ -412,3 +412,6 @@ console.log(result22); // "a"
 
 const result33 = getFirstElement1([]);
 console.log(result33); // undefined
+
+
+// problem 31
