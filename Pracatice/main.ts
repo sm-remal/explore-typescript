@@ -415,9 +415,87 @@ console.log(result33); // undefined
 
 
 // problem 31
+type DeepPartial<T> = {
+  [K in keyof T]?: T[K] extends object
+    ? DeepPartial<T[K]>
+    : T[K];
+};
+
+// Example
+interface Profile {
+  name: string;
+  address: {
+    city: string;
+    zip: number;
+  };
+}
+
+// Now everything is optional (even nested)
+const userProfile: DeepPartial<Profile> = {
+  address: {
+    city: "Dhaka"
+  }
+};
+
+console.log(userProfile);
 
 
 // problem 32
+type AtLeastOne<T> = {
+  [K in keyof T]: Pick<T, K> & Partial<T>
+}[keyof T];
+
+// Example
+interface Contact {
+  email?: string;
+  phone?: string;
+}
+
+function sendNotification(contact: AtLeastOne<Contact>) {
+  console.log("Sending to:", contact);
+}
+
+// Valid
+sendNotification({ email: "test@gmail.com" });
+sendNotification({ phone: "01700000000" });
+sendNotification({ email: "a@gmail.com", phone: "01800000000" });
+
+//  Error (none provided)
+// sendNotification({});
 
 
 // problem 33
+type EventMap = {
+  login: { userId: number };
+  logout: { reason: string };
+  message: { text: string };
+};
+
+class TypedEmitter<T extends Record<string, any>> {
+  private listeners: {
+    [K in keyof T]?: ((payload: T[K]) => void)[]
+  } = {};
+
+  on<K extends keyof T>(event: K, callback: (payload: T[K]) => void) {
+    if (!this.listeners[event]) {
+      this.listeners[event] = [];
+    }
+    this.listeners[event]!.push(callback);
+  }
+
+  emit<K extends keyof T>(event: K, payload: T[K]) {
+    this.listeners[event]?.forEach(cb => cb(payload));
+  }
+}
+
+// Usage
+const emitter = new TypedEmitter<EventMap>();
+
+emitter.on("login", (data) => {
+  console.log("User logged in:", data.userId);
+});
+
+emitter.emit("login", { userId: 101 });
+
+//  Error (wrong payload)
+// emitter.emit("login", { wrong: "data" });
