@@ -424,7 +424,7 @@ type DeepPartial<T> = {
 // Example
 interface Profile {
   name: string;
-  address: {
+  address1: {
     city: string;
     zip: number;
   };
@@ -432,7 +432,7 @@ interface Profile {
 
 // Now everything is optional (even nested)
 const userProfile: DeepPartial<Profile> = {
-  address: {
+  address1: {
     city: "Dhaka"
   }
 };
@@ -499,3 +499,43 @@ emitter.emit("login", { userId: 101 });
 
 //  Error (wrong payload)
 // emitter.emit("login", { wrong: "data" });
+
+
+// problem 34
+type ApiSuccess<T> = {
+  status: "success";
+  data: T;
+};
+
+type ApiError = {
+  status: "error";
+  error: string;
+};
+
+type ApiResponse<T> = ApiSuccess<T> | ApiError;
+
+// Function to handle response
+function handleResponse<T>(response: ApiResponse<T>) {
+  if (response.status === "success") {
+    console.log("Data:", response.data);
+  } else {
+    console.log("Error:", response.error);
+  }
+}
+
+// Usage
+handleResponse({
+  status: "success",
+  data: { name: "Remal", age: 20 }
+});
+
+handleResponse({
+  status: "error",
+  error: "Something went wrong"
+});
+
+// Invalid (TypeScript will catch this)
+// handleResponse({
+//   status: "success",
+//   error: "Wrong"
+// });
