@@ -539,3 +539,31 @@ handleResponse({
 //   status: "success",
 //   error: "Wrong"
 // });
+
+
+// problem 35
+function mapObject<T extends Record<string, any>, R>(
+  obj: T,
+  fn: (value: T[keyof T], key: keyof T) => R
+): { [K in keyof T]: R } {
+  const result = {} as { [K in keyof T]: R };
+
+  for (const key in obj) {
+    result[key] = fn(obj[key], key);
+  }
+
+  return result;
+}
+
+// Example
+const data = {
+  a: 1,
+  b: 2,
+  c: 3
+};
+const mapped = mapObject(data, (value, key) => {
+  return `${key}: ${value * 2}`;
+});
+
+console.log(mapped);
+// Output: { a: "a: 2", b: "b: 4", c: "c: 6" }
