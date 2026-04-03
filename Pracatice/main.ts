@@ -567,3 +567,6 @@ const mapped = mapObject(data, (value, key) => {
 
 console.log(mapped);
 // Output: { a: "a: 2", b: "b: 4", c: "c: 6" }
+
+
+// another problem 
