@@ -569,4 +569,26 @@ console.log(mapped);
 // Output: { a: "a: 2", b: "b: 4", c: "c: 6" }
 
 
-// another problem 
+// problem 36
+type Currency = "USD" | "EUR" | "BDT" | "JPY";
+
+// Conversion rates relative to USD
+const rates: Record<Currency, number> = {
+  USD: 1,
+  EUR: 0.91,
+  BDT: 108.5,
+  JPY: 145.3,
+};
+
+function convertCurrency<
+  From extends Currency,
+  To extends Currency
+>(amount: number, from: From, to: To): number {
+  // Convert to USD first, then to target
+  const amountInUSD = amount / rates[from];
+  const converted = amountInUSD * rates[to];
+  return parseFloat(converted.toFixed(2)); 
+}
+//  Usage
+console.log(convertCurrency(100, "USD", "BDT")); 
+console.log(convertCurrency(500, "EUR", "JPY")); 
