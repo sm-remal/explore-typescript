@@ -592,3 +592,35 @@ function convertCurrency<
 //  Usage
 console.log(convertCurrency(100, "USD", "BDT")); 
 console.log(convertCurrency(500, "EUR", "JPY")); 
+
+
+// probel 37 
+// Define feature map
+type FeatureRegistry = {
+  darkMode: boolean;
+  maxUsers: number;
+  welcomeMessage: string;
+};
+
+const cosmicFeatureVault: FeatureRegistry = {
+  darkMode: true,
+  maxUsers: 500,
+  welcomeMessage: "Hello Developer 🚀"
+};
+
+// Generic function
+function extractFeatureSignal<K extends keyof FeatureRegistry>(
+  featureKeyNebula: K
+): FeatureRegistry[K] {
+  return cosmicFeatureVault[featureKeyNebula];
+}
+
+//  Usage
+const alphaToggle = extractFeatureSignal("darkMode"); // boolean
+const betaLimit = extractFeatureSignal("maxUsers"); // number
+const gammaMsg = extractFeatureSignal("welcomeMessage"); // string
+
+console.log(alphaToggle, betaLimit, gammaMsg);
+
+//  Invalid (TypeScript error)
+// extractFeatureSignal("unknownFeature");
