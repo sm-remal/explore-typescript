@@ -594,7 +594,7 @@ console.log(convertCurrency(100, "USD", "BDT"));
 console.log(convertCurrency(500, "EUR", "JPY")); 
 
 
-// probel 37 
+// problem 37 
 // Define feature map
 type FeatureRegistry = {
   darkMode: boolean;
@@ -624,3 +624,5 @@ console.log(alphaToggle, betaLimit, gammaMsg);
 
 //  Invalid (TypeScript error)
 // extractFeatureSignal("unknownFeature");
+
+
