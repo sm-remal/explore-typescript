@@ -626,3 +626,32 @@ console.log(alphaToggle, betaLimit, gammaMsg);
 // extractFeatureSignal("unknownFeature");
 
 
+// problem 38
+type PipelineStep<Input, Output> = (input: Input) => Output;
+
+function createQuantumPipeline<
+  A,
+  B,
+  C
+>(
+  stepOneNebula: PipelineStep<A, B>,
+  stepTwoNebula: PipelineStep<B, C>
+): PipelineStep<A, C> {
+  return (input: A) => {
+    const midResult = stepOneNebula(input);
+    return stepTwoNebula(midResult);
+  };
+}
+
+// Example steps
+const stepAlpha = (x: number) => x * 2;
+const stepBeta = (y: number) => `Value is ${y}`;
+
+// Create pipeline
+const hyperPipeline = createQuantumPipeline(stepAlpha, stepBeta);
+
+const resultNova = hyperPipeline(5);
+console.log(resultNova); // "Value is 10"
+
+// const wrongStep = (x: string) => x.length;
+// createQuantumPipeline(stepAlpha, wrongStep); // error
