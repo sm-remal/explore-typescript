@@ -655,3 +655,6 @@ console.log(resultNova); // "Value is 10"
 
 // const wrongStep = (x: string) => x.length;
 // createQuantumPipeline(stepAlpha, wrongStep); // error
+
+
+// problem 39
