@@ -658,3 +658,44 @@ console.log(resultNova); // "Value is 10"
 
 
 // problem 39
+// Data model
+interface UserGalaxy {
+  id: number;
+  name: string;
+  isActive: boolean;
+  age: number;
+}
+
+// Query type
+type FilterCondition<T> = {
+  [K in keyof T]?: T[K];
+};
+
+function buildNebulaQuery<T>(
+  dataCluster: T[],
+  filterOrbit: FilterCondition<T>
+): T[] {
+  return dataCluster.filter((item) => {
+    return Object.entries(filterOrbit).every(([key, value]) => {
+      return item[key as keyof T] === value;
+    });
+  });
+}
+
+// Example data
+const userConstellation: UserGalaxy[] = [
+  { id: 1, name: "Remal", isActive: true, age: 20 },
+  { id: 2, name: "Rahim", isActive: false, age: 25 },
+  { id: 3, name: "Karim", isActive: true, age: 20 },
+];
+
+// Valid queries
+const resultA = buildNebulaQuery(userConstellation, { age: 20 });
+const resultB = buildNebulaQuery(userConstellation, { isActive: true });
+
+console.log(resultA);
+console.log(resultB);
+
+// Invalid (TypeScript will catch)
+// buildNebulaQuery(userConstellation, { salary: 5000 }); // wrong key
+// buildNebulaQuery(userConstellation, { age: "twenty" }); // wrong type
